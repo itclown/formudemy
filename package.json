@@ -1,0 +1,22 @@
+{
+  "name": "formudemy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engiges": {
+    "node": "8.4.0",
+    "npm": "5.3.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itclown/formudemy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
