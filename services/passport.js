@@ -23,7 +23,7 @@ passport.use(new GoogleStrategy({
             }
         });*/
 
-        done(null, {success: true});
+        return done(null, {success: true});
     }
     )
 );
