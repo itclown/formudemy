@@ -5,6 +5,9 @@ const keys = require('./config/key');
 
 const app = express();
 
+app.use(passport.initialize());
+
+
 require('./routes/authRoutes')(app);
 
 mongoose.connect(keys.mongoURI);
