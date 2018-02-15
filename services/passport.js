@@ -14,14 +14,16 @@ passport.use(new GoogleStrategy({
         console.log('Refresh token', refresToken);
         console.log('Profile', profile);
 
-        User.findOne({ googleId: profile.id }).then(existingUser => {
+        /*User.findOne({ googleId: profile.id }).then(existingUser => {
             if(existingUser) {
                 done(null, existingUser);
             }
             else {
                 new User({ googleId: profile.id }).save().then(user => done(null, user));
             }
-        });
+        });*/
+
+        done(null, {success: true});
     }
     )
 );
