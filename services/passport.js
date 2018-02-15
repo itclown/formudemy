@@ -6,7 +6,8 @@ const keys = require('../config/key');
 passport.use(new GoogleStrategy({
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: '/auth/google/callback'
+        callbackURL: '/auth/google/callback',
+        proxy: true
     }, (accessToken, refresToken, profile, done) => {
         console.log('Access token', accessToken);
         console.log('Refresh token', refresToken);
