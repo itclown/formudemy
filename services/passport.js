@@ -6,13 +6,15 @@ const User = require('../models/User');
 
 
 passport.serializeUser((user, done) => {
-    console.log('serialize');
-    done(null, user.googleId);
+    console.log('serialize ', user.id);
+    done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-   User.findOne({googleId: id})
+    console.log('deserialize ', id);
+    User.findOne({"_id": id})
        .then(user => {
+           console.log('find ', user);
            done(null, user)
        })
 });
@@ -31,7 +33,7 @@ passport.use(new GoogleStrategy({
                 done(null, existingUser);
             }
             else {
-                new User({ googleId: profile.id }).save().then(user => done(null, user));
+                new User({ googleId: profile.id, nom: profile.displayName }).save().then(user => done(null, user));
             }
         });
 
