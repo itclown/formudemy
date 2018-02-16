@@ -14,8 +14,14 @@ module.exports = (app) => {
         passport.authenticate('google'));
 
     app.get('/api/current_user', (req, res) => {
+       // res.send(req.session);
         res.send(req.user);
     });
+
+    app.get('/api/logout', async (req, res) => {
+        await req.logout();
+        res.send(req.user);
+    })
 
 
 }
